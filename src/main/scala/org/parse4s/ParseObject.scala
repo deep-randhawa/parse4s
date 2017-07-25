@@ -28,28 +28,28 @@ case class ParseObject(className: String,
   }
 }
 
-private trait ParseType
+trait ParseType
 
-private case class ParseNumber(value: Number) extends ParseType
+case class ParseNumber(value: Number) extends ParseType
 
-private case class ParseString(value: String) extends ParseType
+case class ParseString(value: String) extends ParseType
 
-private case class ParseDateTime(value: DateTime) extends ParseType
+case class ParseDateTime(value: DateTime) extends ParseType
 
-private case class ParseArray(value: Seq[ParseType]) extends ParseType
+case class ParseArray(value: Seq[ParseType]) extends ParseType
 
-private case class ParseData(value: Option[Map[String, ParseType]])
+case class ParseData(value: Option[Map[String, ParseType]])
   extends ParseType {
-  def put(item: (String, Number)) =
+  def putNumber(item: (String, Number)) =
     ParseData(Some(value.getOrElse(Map()) + (item._1 -> ParseNumber(item._2))))
 
-  def put(item: (String, String)) =
+  def putString(item: (String, String)) =
     ParseData(Some(value.getOrElse(Map()) + (item._1 -> ParseString(item._2))))
 
-  def put(item: (String, DateTime)) =
+  def putDateTime(item: (String, DateTime)) =
     ParseData(Some(value.getOrElse(Map()) + (item._1 -> ParseDateTime(item._2))))
 
-  def put(item: (String, ParseData)) =
+  def putParseData(item: (String, ParseData)) =
     ParseData(Some(value.getOrElse(Map()) + (item._1 -> item._2)))
 
   def serialize = ???

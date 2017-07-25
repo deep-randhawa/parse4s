@@ -2,10 +2,11 @@ package org.parse4s
 
 object Parse {
 
-  private var mApplicationID: String = null
-  private var mMasterKey: String = null
-  private var mServerURL: String = null
-  private lazy val isRoot: Boolean = mMasterKey != null
+  // TODO: Change values to null for deployment
+  private var mApplicationID: String = "myAppId"
+  private var mMasterKey: String = "myMasterKey"
+  private var mServerURL: String = "https://parse4s-server.herokuapp.com/"
+  lazy val isRoot: Boolean = mMasterKey != null
 
   def applicationID = mApplicationID
 
