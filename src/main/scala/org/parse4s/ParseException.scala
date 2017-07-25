@@ -1,3 +1,5 @@
+package org.parse4s
+
 /**
   * The error codes are the same at published on [[http://docs.parseplatform.org/rest/guide/#error-codes]]
   */
@@ -54,9 +56,9 @@ object ParseException {
 
   def JobNotFound = new ParseException(141, "Background job not found. Check that the specified job is present in your Cloud Code script and has been deployed.")
 
-  def SuccessErrorNotCalled = new ParseException(141, "success/error was not called. A cloud function will return once response.successnew ParseException() or response.errornew ParseException() is called. A background job will similarly finish execution once status.successnew ParseException() or status.errornew ParseException() is called. If a function or job never reaches either of the success/error methods, this error will be returned. This may happen when a function does not handle an error response correctly, preventing code execution from reaching the successnew ParseException() method call.")
+  def SuccessErrorNotCalled = new ParseException(141, "success/error was not called. A cloud function will return once response.successnew org.parse4s.ParseException() or response.errornew org.parse4s.ParseException() is called. A background job will similarly finish execution once status.successnew org.parse4s.ParseException() or status.errornew org.parse4s.ParseException() is called. If a function or job never reaches either of the success/error methods, this error will be returned. This may happen when a function does not handle an error response correctly, preventing code execution from reaching the successnew org.parse4s.ParseException() method call.")
 
-  def MultupleSuccessErrorCalls = new ParseException(141, "Can’t call success/error multiple times. A cloud function will return once response.successnew ParseException() or response.errornew ParseException() is called. A background job will similarly finish execution once status.successnew ParseException() or status.errornew ParseException() is called. If a function or job calls successnew ParseException() and/or errornew ParseException() more than once in a single execution path, this error will be returned.")
+  def MultupleSuccessErrorCalls = new ParseException(141, "Can’t call success/error multiple times. A cloud function will return once response.successnew org.parse4s.ParseException() or response.errornew org.parse4s.ParseException() is called. A background job will similarly finish execution once status.successnew org.parse4s.ParseException() or status.errornew org.parse4s.ParseException() is called. If a function or job calls successnew org.parse4s.ParseException() and/or errornew org.parse4s.ParseException() more than once in a single execution path, this error will be returned.")
 
   def ValidationFailed = new ParseException(142, "Cloud Code validation failed.")
 
@@ -83,7 +85,7 @@ object ParseException {
 
   def IncorrectType = new ParseException(111, "A field was set to an inconsistent type. Check error message for more details.")
 
-  def InvalidChannelName = new ParseException(112, "Invalid channel name. A channel name is either an empty string new ParseException(the broadcast channel) or contains only a-zA-Z0-9_ characters and starts with a letter.")
+  def InvalidChannelName = new ParseException(112, "Invalid channel name. A channel name is either an empty string new org.parse4s.ParseException(the broadcast channel) or contains only a-zA-Z0-9_ characters and starts with a letter.")
 
   def InvalidSubscriptionType = new ParseException(113, "Bad subscription type. Check error message for more details.")
 
@@ -177,7 +179,7 @@ object ParseException {
 
   def LinkedIdMissing = new ParseException(250, "A user cannot be linked to an account because that account’s id could not be found.")
 
-  def InvalidLinkedSession = new ParseException(251, "A user with a linked new ParseException(e.g. Facebook or Twitter) account has an invalid session. Check error message for more details.")
+  def InvalidLinkedSession = new ParseException(251, "A user with a linked new org.parse4s.ParseException(e.g. Facebook or Twitter) account has an invalid session. Check error message for more details.")
 
   def InvalidGeneralAuthData = new ParseException(251, "Invalid auth data value used.")
 
@@ -195,7 +197,7 @@ object ParseException {
 
   def TwitterWrongScreenName = new ParseException(251, "Submitted Twitter handle does not match the handle associated with the submitted access token.")
 
-  def UnsupportedService = new ParseException(252, "A service being linked new ParseException(e.g. Facebook or Twitter) is unsupported. Check error message for more details.")
+  def UnsupportedService = new ParseException(252, "A service being linked new org.parse4s.ParseException(e.g. Facebook or Twitter) is unsupported. Check error message for more details.")
 
   def UsernameSigninDisabled = new ParseException(252, "Authentication by username and password is not supported for this application. Check your Parse app’s authentication settings.")
 
@@ -221,11 +223,11 @@ object ParseException {
 
   def InefficientQueryError = new ParseException(154, "An inefficient query was rejected by the server. Refer to the Performance Guide and slow query log.")
 
-  def RequestLimitExceeded = new ParseException(155, "	This application has exceeded its request limit new ParseException(legacy Parse.com apps only).")
+  def RequestLimitExceeded = new ParseException(155, "	This application has exceeded its request limit new org.parse4s.ParseException(legacy Parse.com apps only).")
 
-  def TemporaryRejectionError = new ParseException(159, "An application’s requests are temporary rejected by the server new ParseException(legacy Parse.com apps only).")
+  def TemporaryRejectionError = new ParseException(159, "An application’s requests are temporary rejected by the server new org.parse4s.ParseException(legacy Parse.com apps only).")
 
-  def DatabaseNotMigratedError = new ParseException(428, "You should migrate your database as soon as possible new ParseException(legacy Parse.com apps only).")
+  def DatabaseNotMigratedError = new ParseException(428, "You should migrate your database as soon as possible new org.parse4s.ParseException(legacy Parse.com apps only).")
 
   def OtherCause = new ParseException(-1, "An unknown error or an error unrelated to Parse occurred.")
 

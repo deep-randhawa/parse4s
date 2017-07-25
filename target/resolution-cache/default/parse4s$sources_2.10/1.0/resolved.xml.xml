@@ -4,7 +4,7 @@
 		module="parse4s$sources_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20170723233014"
+		publication="20170724160114"
 	/>
 	<configurations>
 		<conf name="default" visibility="public" description=""/>

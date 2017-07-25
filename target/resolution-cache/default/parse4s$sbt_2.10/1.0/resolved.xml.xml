@@ -4,7 +4,7 @@
 		module="parse4s$sbt_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20170723233012"
+		publication="20170724160113"
 	/>
 	<configurations>
 		<conf name="default" visibility="public"/>
