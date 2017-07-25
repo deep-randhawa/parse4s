@@ -53,12 +53,10 @@ case class ParseData(value: Option[Map[String, ParseType]])
 
   def putParseData(item: (String, ParseData)) =
     ParseData(Some(value.getOrElse(Map()) + (item._1 -> item._2)))
-}
 
-object JsonSerializer {
-  def toJson(obj: ParseData): String = {
+  def serialize: String = {
     var json = new ListBuffer[String]()
-    for ((k, v) <- obj.value.get) {
+    for ((k, v) <- this.value.get) {
       if (!k.isInstanceOf[String]) throw new ParseException("Keys must be alphanumeric strings.")
       if (!v.isInstanceOf[ParseType]) throw new ParseException("Values should conform to internal ParseType")
       v match {
@@ -66,7 +64,7 @@ object JsonSerializer {
         case s: ParseString => json += "\"" + k + "\":\"" + s.value + "\""
         case dt: ParseDateTime => json += "\"" + k + "\":\"" + ParseConstants.TIME_FORMAT.print(dt.value) // TODO Fix Error
         case a: ParseArray => ; // TODO
-        case m: ParseData => json += "\"" + k + "\":\"" + toJson(m) + "\""
+        case m: ParseData => json += "\"" + k + "\":" + m.serialize
       }
     }
     return "{" + json.mkString(",") + "}"
