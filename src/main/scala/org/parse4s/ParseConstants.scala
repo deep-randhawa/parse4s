@@ -1,5 +1,7 @@
 package org.parse4s
 
+import org.joda.time.format.DateTimeFormat
+
 import scala.concurrent.duration._
 
 object ParseConstants {
@@ -36,5 +38,7 @@ object ParseConstants {
 
   val MAX_PARSE_FILE_SIZE = 10485760
   val TIMEOUT_DURATION = 10000 millis
-  val TIME_FORMAT = "YYYY-MM-DDTHH:MM:SS.MMMZ"
+
+  private val _TIME_FORMAT = "YYYY-MM-DDTHH:MM:SS.MMMZ"
+  val TIME_FORMAT = DateTimeFormat.forPattern(_TIME_FORMAT)
 }
